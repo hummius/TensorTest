@@ -17,7 +17,7 @@ def file_delete(file_name):
         os.remove(f"./downloads/{file_name}")
 
 
-def download_check(file_name, size):
+def download_check(file_name):
     root = Path(__file__).parent.parent
     file_path = os.path.join(root, f"downloads/{file_name}")
     count = 0
@@ -27,6 +27,12 @@ def download_check(file_name, size):
             count += 1
         else:
             raise DownloadError(f"File download failed. Something goes wrong ;(")
+    return True
+
+
+def file_size_check(file_name, size):
+    root = Path(__file__).parent.parent
+    file_path = os.path.join(root, f"downloads/{file_name}")
     if round((os.path.getsize(file_path) / 1048576), 2) == size:
         return True
     else:
