@@ -18,6 +18,8 @@ class SbisDownloadPage(BasePage):
     def click_plugin(self):
         button = self.plugin_button
         ActionChains(self.browser).move_to_element(button).click(button).perform()
+        ActionChains(self.browser).move_to_element(button).click(button).perform()
+
 
     def download_plugin(self):
         return self.find(download_selector)
